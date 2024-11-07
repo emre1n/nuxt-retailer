@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-1">
-    <label v-if="label" class="block text-sm font-medium text-gray-700">
+    <label v-if="label" class="block text-sm font-medium text-secondary-700">
       {{ label }}
     </label>
     <input
@@ -11,10 +11,13 @@
       :type="type"
       :placeholder="placeholder"
       :required="required"
-      class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-      :class="{ 'border-red-500': error }"
+      class="w-full px-3 py-2 border rounded-md text-secondary-900 placeholder:text-secondary-400 focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 disabled:bg-secondary-50 disabled:text-secondary-500"
+      :class="{
+        'border-error-500 focus:ring-error-500/50 focus:border-error-500':
+          error,
+      }"
     />
-    <p v-if="error" class="text-sm text-red-600">{{ error }}</p>
+    <p v-if="error" class="text-sm text-error-600">{{ error }}</p>
   </div>
 </template>
 
