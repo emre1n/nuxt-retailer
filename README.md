@@ -20,6 +20,24 @@ Start the development server on `http://localhost:3000`:
 pnpm dev
 ```
 
+## Production
+
+Build the application for production:
+
+```bash
+# pnpm
+# pnpm
+pnpm build
+```
+
+Locally preview production build:
+
+```bash
+# pnpm
+# pnpm
+pnpm preview
+```
+
 ## Component Architecture
 
 Our component structure follows a feature-first organization principle, promoting maintainability and scalability. Components are organized into the following directories:
@@ -127,22 +145,152 @@ Form-specific components and utilities:
    - Use absolute imports with `@` alias
    - Example: `import Button from '@/components/ui/Button.vue'`
 
-## Production
+## Design System
 
-Build the application for production:
+Our design system provides a consistent visual language across the application through carefully crafted color palettes, typography, and component styles.
 
-```bash
-# pnpm
-# pnpm
-pnpm build
+### Colors
+
+The color system is built with semantic meaning and accessibility in mind:
+
+```javascript
+colors: {
+  primary: {
+    50: '#f0f9ff',  // Lightest - backgrounds
+    100: '#e0f2fe', // Light hover states
+    // ...
+    600: '#0284c7', // Default primary
+    700: '#0369a1', // Hover states
+    900: '#0c4a6e', // Darkest - text
+  },
+  secondary: {
+    50: '#f8fafc',  // Light backgrounds
+    // ...
+    700: '#334155', // Body text
+    900: '#0f172a', // Headings
+  },
+  // Semantic colors
+  success: { 50: '#f0fdf4', 500: '#22c55e', 700: '#15803d' },
+  error: { 50: '#fef2f2', 500: '#ef4444', 700: '#b91c1c' },
+  warning: { 50: '#fffbeb', 500: '#f59e0b', 700: '#b45309' },
+}
 ```
 
-Locally preview production build:
+Usage:
 
-```bash
-# pnpm
-# pnpm
-pnpm preview
+- Primary: Main actions, links, and brand elements
+- Secondary: UI elements, backgrounds, and text
+- Semantic: Success messages, errors, and warnings
+
+### Typography
+
+The type system uses two main fonts:
+
+1. **Inter** (Body Text)
+
+   - Primary font for all body text and UI elements
+   - Weights: 400 (regular), 500 (medium), 600 (semibold), 700 (bold)
+
+2. **Lexend** (Display/Headings)
+   - Used for headings and display text
+   - Weights: 400 (regular), 500 (medium), 600 (semibold), 700 (bold)
+
+#### Type Scale
+
+```javascript
+fontSize: {
+  xs: ['0.75rem', { lineHeight: '1rem' }],     // 12px - captions
+  sm: ['0.875rem', { lineHeight: '1.25rem' }],  // 14px - small text
+  base: ['1rem', { lineHeight: '1.5rem' }],     // 16px - body text
+  lg: ['1.125rem', { lineHeight: '1.75rem' }],  // 18px - large body
+  xl: ['1.25rem', { lineHeight: '1.75rem' }],   // 20px - small headings
+  '2xl': ['1.5rem', { lineHeight: '2rem' }],    // 24px - headings
+  // ... larger sizes for display text
+}
+```
+
+#### Usage Examples
+
+```html
+<!-- Headings -->
+<h1 class="font-display text-4xl font-bold text-secondary-900">
+  <h2 class="font-display text-3xl font-semibold text-secondary-900">
+    <!-- Body Text -->
+    <p class="text-body">Regular paragraph text</p>
+    <p class="text-body-sm">Smaller text</p>
+    <p class="text-caption">Caption text</p>
+  </h2>
+</h1>
+```
+
+### Component Styles
+
+Components follow these consistent styling patterns:
+
+#### Buttons
+
+- Primary: Solid background with white text
+- Secondary: Light background with darker text
+- Danger: Red background for destructive actions
+- States: Hover, Focus, Disabled, Loading
+
+```html
+<button variant="primary" size="md">Primary Action</button>
+<button variant="secondary" size="sm">Secondary Action</button>
+```
+
+#### Inputs
+
+- Consistent padding and border radius
+- Clear focus states with rings
+- Error states with red borders
+- Disabled states with reduced opacity
+
+```html
+<input
+  label="Email"
+  type="email"
+  placeholder="Enter your email"
+  :error="errorMessage"
+/>
+```
+
+### Usage Guidelines
+
+1. **Colors**
+
+   - Use semantic colors appropriately (e.g., error-500 for error states)
+   - Maintain sufficient contrast ratios for accessibility
+   - Use primary colors sparingly for emphasis
+
+2. **Typography**
+
+   - Stick to the defined type scale
+   - Use appropriate font weights for hierarchy
+   - Maintain consistent line heights
+
+3. **Components**
+   - Use provided component variants instead of custom styles
+   - Maintain consistent spacing using the spacing scale
+   - Follow accessibility best practices
+
+### Implementation
+
+The design system is implemented using Tailwind CSS. To use it:
+
+1. Import the base styles:
+
+```css
+@import '@/assets/css/main.css';
+```
+
+2. Use utility classes and components:
+
+```html
+<div class="bg-primary-50 p-4">
+  <h2 class="font-display text-2xl font-semibold">Title</h2>
+  <p class="text-body mt-2">Content</p>
+</div>
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

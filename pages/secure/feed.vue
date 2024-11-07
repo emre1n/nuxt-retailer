@@ -22,7 +22,7 @@
   import { useRouter } from 'vue-router';
   import Button from '@/components/ui/Button.vue';
   import Header from '@/components/layout/Header.vue';
-  import Feed from '@/components/features/feed/Feed.vue';
+  import Feed from '~/components/features/feed/Feed.vue';
 
   const router = useRouter();
 
