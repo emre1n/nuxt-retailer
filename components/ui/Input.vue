@@ -11,7 +11,7 @@
       :type="type"
       :placeholder="placeholder"
       :required="required"
-      class="w-full px-3 py-2 border rounded-md text-secondary-900 placeholder:text-secondary-400 focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 disabled:bg-secondary-50 disabled:text-secondary-500"
+      class="w-full px-3 py-2 border rounded-sm text-secondary-900 placeholder:text-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 disabled:bg-secondary-50 disabled:text-secondary-500"
       :class="{
         'border-error-500 focus:ring-error-500/50 focus:border-error-500':
           error,
@@ -32,5 +32,7 @@
   }
 
   defineProps<Props>();
-  defineEmits(['update:modelValue']);
+  defineEmits<{
+    'update:modelValue': [value: string];
+  }>();
 </script>

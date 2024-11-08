@@ -13,7 +13,6 @@
 <script setup lang="ts">
   import FeedPost from './FeedPost.vue';
   import { ref } from 'vue';
-  import Button from '@/components/ui/Button.vue';
 
   interface Post {
     id: number;

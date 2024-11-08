@@ -5,7 +5,7 @@
         <!-- Add navigation items here if needed -->
       </template>
       <template #actions>
-        <Button variant="danger" @click="handleLogout">Logout</Button>
+        <Button variant="primary" @click="handleLogout">Logout</Button>
       </template>
     </Header>
 
