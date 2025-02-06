@@ -14,7 +14,6 @@
 </template>
 
 <script setup lang="ts">
-  import { defineEmits } from 'vue';
   import Button from '@/components/ui/Button.vue';
   import type { LoginType } from '@/types/auth';
 

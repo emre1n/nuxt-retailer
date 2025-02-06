@@ -29,7 +29,7 @@
     {
       id: 1,
       authorName: 'John Doe',
-      authorAvatar: 'https://via.placeholder.com/40',
+      authorAvatar: 'https://placehold.co/40x40',
       content: 'Just launched our new product line! Check it out!',
       timestamp: '2 hours ago',
       likes: 15,
@@ -38,7 +38,7 @@
     {
       id: 2,
       authorName: 'Jane Smith',
-      authorAvatar: 'https://via.placeholder.com/40',
+      authorAvatar: 'https://placehold.co/40x40',
       content:
         'Great meeting with our retail partners today. Exciting times ahead!',
       timestamp: '5 hours ago',
