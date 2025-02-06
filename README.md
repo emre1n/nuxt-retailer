@@ -293,4 +293,24 @@ The design system is implemented using Tailwind CSS. To use it:
 </div>
 ```
 
+## Development Notes
+
+### Service Worker Route Handling
+
+To handle browser requests for service workers without implementing PWA functionality, we've added a simple route rule in `nuxt.config.ts`:
+
+```typescript
+routeRules: {
+  '/sw.js': { redirect: '/' }
+}
+```
+
+This configuration:
+
+- Eliminates the Vue Router warning: `No match found for location with path "/sw.js"`
+- Redirects service worker requests to the home page
+- Provides a lightweight solution when PWA functionality isn't needed
+
+This approach keeps the console clean without requiring a full PWA implementation.
+
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

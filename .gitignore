@@ -23,5 +23,8 @@ logs
 .env.*
 !.env.example
 
+# Docker
+docker-compose.yml
+
 # Scripts
 *.sh

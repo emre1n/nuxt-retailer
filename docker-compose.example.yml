@@ -11,7 +11,7 @@ services:
       - /app/.nuxt
     environment:
       - NODE_ENV=development
-      - API_BASE_URL=https://api.pmaktiftr-dev.aws.pmicloud.biz
+      - API_BASE_URL=XXXXXX
     command: pnpm dev
 
   # Add more services here if needed (e.g., database, cache, etc.)
