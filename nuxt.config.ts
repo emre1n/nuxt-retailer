@@ -3,7 +3,6 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss'],
-  // modules: ['@nuxtjs/tailwindcss', '@nuxt/test-utils/module'],
   css: ['~/assets/css/main.css'],
   typescript: {
     typeCheck: true,
@@ -44,6 +43,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBaseUrl: process.env.API_BASE_URL,
+      siteUrl: process.env.SITE_URL || 'http://localhost:3000',
     },
   },
   routeRules: {
