@@ -7,7 +7,13 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "NODE_NO_WARNINGS=1 vitest run",
+    "test:watch": "NODE_NO_WARNINGS=1 vitest watch",
+    "test:coverage": "NODE_NO_WARNINGS=1 vitest run --coverage",
+    "test:client": "NODE_NO_WARNINGS=1 vitest run test/client --environment=happy-dom",
+    "test:server": "NODE_NO_WARNINGS=1 vitest run test/server --environment=node",
+    "test:e2e": "NODE_NO_WARNINGS=1 vitest run test/e2e --environment=node --timeout=30000"
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.12.2",
@@ -17,8 +23,15 @@
   },
   "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee",
   "devDependencies": {
+    "@nuxt/test-utils": "^3.15.4",
+    "@playwright/test": "^1.50.1",
     "@tailwindcss/forms": "^0.5.9",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^17.1.0",
+    "playwright": "^1.50.1",
+    "playwright-core": "^1.50.1",
     "typescript": "^5.6.3",
-    "vue-tsc": "^2.1.10"
+    "vue-tsc": "^2.1.10",
+    "vitest": "^3.0.5"
   }
 }
